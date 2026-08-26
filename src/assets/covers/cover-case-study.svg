@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="caseStudyTitle">
+  <title id="caseStudyTitle">Abstract case study cover with investigative path motif</title>
+  <defs>
+    <linearGradient id="caseBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b3566" />
+      <stop offset="1" stop-color="#2c57a6" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#caseBg)" />
+
+  <!-- path of discovery -->
+  <g stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.6" fill="none">
+    <path d="M 120 340 C 220 360, 260 260, 340 250 S 440 180, 520 190" stroke-dasharray="3 7" />
+  </g>
+  <g fill="#ffffff">
+    <circle cx="120" cy="340" r="6" opacity="0.6" />
+    <circle cx="340" cy="250" r="6" opacity="0.75" />
+    <circle cx="520" cy="190" r="7" opacity="0.9" />
+  </g>
+
+  <!-- magnifying glass -->
+  <g transform="translate(560,230) rotate(20)">
+    <circle cx="0" cy="0" r="58" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.85" />
+    <line x1="42" y1="42" x2="95" y2="95" stroke="#ffffff" stroke-width="14" stroke-linecap="round" opacity="0.85" />
+    <circle cx="0" cy="0" r="58" fill="#ffffff" opacity="0.08" />
+  </g>
+</svg>

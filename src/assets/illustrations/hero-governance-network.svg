@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="heroTitle">
+  <title id="heroTitle">Abstract network of connected governance nodes across Africa</title>
+  <defs>
+    <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b3566" />
+      <stop offset="1" stop-color="#2c57a6" />
+    </linearGradient>
+    <linearGradient id="heroContinent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.14" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06" />
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="640" rx="24" fill="url(#heroBg)" />
+
+  <!-- abstracted continent silhouette -->
+  <path
+    d="M 300 90
+       C 270 95, 245 115, 235 140
+       C 225 165, 190 175, 175 205
+       C 160 235, 175 265, 200 280
+       C 190 310, 205 335, 235 340
+       C 245 380, 255 420, 280 460
+       C 295 490, 305 520, 330 545
+       C 345 500, 340 460, 350 420
+       C 360 390, 385 375, 390 340
+       C 415 320, 430 290, 415 260
+       C 440 240, 450 210, 430 185
+       C 460 170, 470 145, 450 120
+       C 425 100, 395 100, 370 110
+       C 350 95, 325 88, 300 90 Z"
+    fill="url(#heroContinent)"
+    stroke="#ffffff"
+    stroke-opacity="0.22"
+    stroke-width="2"
+  />
+
+  <!-- connection lines -->
+  <g stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.6">
+    <line x1="238" y1="188" x2="330" y2="230" />
+    <line x1="330" y1="230" x2="420" y2="200" />
+    <line x1="330" y1="230" x2="300" y2="330" />
+    <line x1="300" y1="330" x2="380" y2="360" />
+    <line x1="300" y1="330" x2="250" y2="400" />
+    <line x1="380" y1="360" x2="340" y2="470" />
+    <line x1="420" y1="200" x2="470" y2="260" />
+    <line x1="238" y1="188" x2="190" y2="250" />
+  </g>
+
+  <!-- nodes -->
+  <g fill="#ffffff">
+    <circle cx="238" cy="188" r="6" opacity="0.9" />
+    <circle cx="420" cy="200" r="5" opacity="0.75" />
+    <circle cx="330" cy="230" r="8" opacity="0.95" />
+    <circle cx="470" cy="260" r="4.5" opacity="0.6" />
+    <circle cx="190" cy="250" r="4.5" opacity="0.6" />
+    <circle cx="300" cy="330" r="7" opacity="0.85" />
+    <circle cx="380" cy="360" r="5" opacity="0.7" />
+    <circle cx="250" cy="400" r="4.5" opacity="0.6" />
+    <circle cx="340" cy="470" r="6" opacity="0.8" />
+  </g>
+
+  <!-- orbiting ring accent -->
+  <circle cx="330" cy="230" r="34" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="2 6" />
+</svg>

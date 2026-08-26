@@ -1,13 +1,144 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
-  --color-navy: #1b3566;
-  --color-navy-light: #2c57a6;
+  --font-heading: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Two dark tones + one light tone, alternated deliberately across
+     sections per the DGA Scope doc's fixed colour system (no theme toggle). */
+  --color-navy: #0a1128;
+  --color-navy-light: #131b36;
+  --color-navy-slate: #131b36;
+  --color-gold: #e8a33d;
+  --color-gold-deep: #c9822a;
+  --color-blue-accent: #5b7fdb;
+  --color-headline-dark: #f5f6fa;
+  --color-body-dark: #c7cddb;
+
+  /* Light Section role */
+  --color-ink: #0a1128;
+  --color-ink-muted: #2a324b;
+  --color-surface: #f7f8fa;
+  --color-surface-alt: #eef0f4;
+  --color-line: #e1e5ee;
+
+  /* Spacing scale (px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Corner radius scale */
+  --radius-sm: 8px;
+  --radius-card: 14px;
+  --radius-lg: 24px;
+
+  /* Easing / timing reference */
+  --ease-standard: ease;
+  --duration-standard: 200ms;
+  --ease-scroll: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-scroll: 600ms;
+  --ease-card: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-card: 200ms;
+  --ease-crossfade: linear;
+  --duration-crossfade: 900ms;
+  --ease-magnetic: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html {
+  color-scheme: light;
 }
 
 body {
   font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Accessibility: high-contrast mode strengthens text/border tokens instead of
+   relying on opacity utilities, so every component that uses them benefits. */
+html[data-contrast="high"] {
+  --color-ink: #000000;
+  --color-ink-muted: #1a1a1a;
+  --color-surface-alt: #ffffff;
+  --color-line: #000000;
+}
+
+/* Accessibility: text-size stepper scales the whole rem-based type scale. */
+html[data-text-size="lg"] {
+  font-size: 112.5%;
+}
+
+html[data-text-size="xl"] {
+  font-size: 125%;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+html[data-contrast="high"] *:focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 2px;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 18s ease-out forwards;
+}
+
+@keyframes constellation-pulse {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-constellation-pulse circle {
+  animation: constellation-pulse 4s ease-in-out infinite;
+}
+
+/* Accessibility: disable scroll/hover motion effects when the visitor's
+   system has reduced motion enabled. Components should still check
+   usePrefersReducedMotion() in JS for effects that can't be pure CSS
+   (IntersectionObserver reveals, count-up, magnetic buttons). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

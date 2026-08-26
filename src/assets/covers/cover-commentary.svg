@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="commentaryTitle">
+  <title id="commentaryTitle">Abstract commentary cover with quotation mark motif</title>
+  <defs>
+    <linearGradient id="commentaryBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b3566" />
+      <stop offset="1" stop-color="#2c57a6" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#commentaryBg)" />
+
+  <!-- large quotation marks -->
+  <g fill="#ffffff">
+    <path
+      d="M 260 160 C 220 160 195 190 195 232 C 195 270 220 296 254 296 C 250 330 228 356 195 368 L 210 392 C 262 378 296 336 296 270 C 296 208 284 160 260 160 Z"
+      opacity="0.9"
+    />
+    <path
+      d="M 430 160 C 390 160 365 190 365 232 C 365 270 390 296 424 296 C 420 330 398 356 365 368 L 380 392 C 432 378 466 336 466 270 C 466 208 454 160 430 160 Z"
+      opacity="0.6"
+    />
+  </g>
+
+  <!-- dialogue lines -->
+  <g stroke="#ffffff" stroke-opacity="0.3" stroke-width="2">
+    <line x1="540" y1="200" x2="700" y2="200" />
+    <line x1="540" y1="230" x2="680" y2="230" />
+    <line x1="540" y1="260" x2="660" y2="260" />
+  </g>
+
+  <circle cx="120" cy="330" r="4" fill="#ffffff" opacity="0.5" />
+  <circle cx="145" cy="330" r="4" fill="#ffffff" opacity="0.35" />
+  <circle cx="170" cy="330" r="4" fill="#ffffff" opacity="0.2" />
+</svg>

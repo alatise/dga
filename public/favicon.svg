@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508 508" role="img" aria-label="Digital Governance Africa">
-<g transform="translate(0.000000,508.000000) scale(0.100000,-0.100000)"
-fill="#1b3566" stroke="none">
+<style>
+  .mark { fill: #1b3566; }
+  @media (prefers-color-scheme: dark) {
+    .mark { fill: #ffffff; }
+  }
+</style>
+<g class="mark" transform="translate(0.000000,508.000000) scale(0.100000,-0.100000)"
+stroke="none">
 <path d="M1909 4869 c-36 -5 -153 -27 -260 -50 -160 -34 -220 -42 -339 -46
 -80 -3 -153 -10 -163 -15 -10 -5 -30 -29 -46 -54 -15 -25 -50 -62 -77 -83 -34
 -25 -74 -74 -131 -159 -70 -106 -190 -260 -359 -461 -96 -115 -115 -194 -69

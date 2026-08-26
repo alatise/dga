@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(sed -i '' 's/text-navy underline/text-gold underline/' src/pages/TermsPage.tsx src/pages/PrivacyPolicyPage.tsx)",
+      "Bash(sed -i '' 's/text-navy-light\">404</text-gold\">404</' src/pages/NotFoundPage.tsx)"
+    ]
+  }
+}

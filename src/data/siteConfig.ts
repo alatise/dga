@@ -8,7 +8,6 @@ export const SITE_CONFIG = {
   address: "Nigeria — Serving Africa",
   social: {
     linkedin: "https://linkedin.com/company/digital-governance-africa",
-    youtube: "https://youtube.com/@thedigitalgovernance",
     tiktok: "https://tiktok.com/@thedigitalgovernance",
     instagram: "https://instagram.com/thedigitalgovernance",
   },

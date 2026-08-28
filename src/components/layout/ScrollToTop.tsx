@@ -6,8 +6,6 @@ export function ScrollToTop() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const main = document.getElementById("main-content");
-    main?.focus();
   }, [pathname]);
 
   return null;

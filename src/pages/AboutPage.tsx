@@ -1,10 +1,12 @@
-import { FiArrowRight, FiUsers, FiHome } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import { PageMeta } from "../components/seo/PageMeta";
 import { Container } from "../components/layout/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Button } from "../components/ui/Button";
-import { PlaceholderImage } from "../components/ui/PlaceholderImage";
 import { VALUES } from "../data/team";
+import aboutPageOffice from "../assets/images/About_page_office_1.webp";
+import aboutPageTeam from "../assets/images/Team_Photo_About_Page.webp";
+import { ImageWithOverlay } from "../components/ui/ImageOverlay";
 
 export function AboutPage() {
   return (
@@ -23,9 +25,9 @@ export function AboutPage() {
             Shaping Africa's Digital Future
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-ink-muted">
-            Digital Governance Africa is a Nigerian-based organisation advancing digital
-            governance, responsible artificial intelligence and institutional transformation
-            across Africa.
+            Digital Governance Africa is a Nigerian-based organisation advancing
+            digital governance, responsible artificial intelligence and
+            institutional transformation across Africa.
           </p>
         </Container>
       </section>
@@ -33,20 +35,23 @@ export function AboutPage() {
       <section className="py-20">
         <Container className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
-            <SectionHeading eyebrow="Our Story" title="Technology alone does not transform institutions." />
+            <SectionHeading
+              eyebrow="Our Story"
+              title="Technology alone does not transform institutions."
+            />
             <p className="mt-6 text-base leading-relaxed text-ink-muted">
-              We were founded on a simple conviction: sustainable transformation requires
-              effective governance, trusted data, capable leadership and responsible innovation.
-              DGA was established to bridge the gap between technology, policy, governance and
-              institutional development. We help organisations navigate digital change while
+              We were founded on a simple conviction: sustainable transformation
+              requires effective governance, trusted data, capable leadership
+              and responsible innovation. DGA was established to bridge the gap
+              between technology, policy, governance and institutional
+              development. We help organisations navigate digital change while
               strengthening accountability, resilience and public trust.
             </p>
           </div>
-          {/* About story/office image, min. 1200x800px — swap this slot for the supplied photo. */}
-          <PlaceholderImage
-            label="About story / office image"
-            icon={FiHome}
-            aspect="video"
+
+          <ImageWithOverlay
+            src={aboutPageOffice}
+            alt="About DGA / Office image"
             className="rounded-lg"
           />
         </Container>
@@ -55,27 +60,36 @@ export function AboutPage() {
       <section className="border-t border-line bg-surface-alt py-20">
         <Container className="grid gap-10 sm:grid-cols-3">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Vision</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+              Vision
+            </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-              To become Africa's leading centre of excellence for Digital Governance and
-              Responsible Artificial Intelligence, empowering trusted institutions,
-              transformational leaders and sustainable innovation.
+              To become Africa's leading centre of excellence for Digital
+              Governance and Responsible Artificial Intelligence, empowering
+              trusted institutions, transformational leaders and sustainable
+              innovation.
             </p>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Mission</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+              Mission
+            </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-              To empower governments, institutions, regulators, businesses, development
-              organisations and communities to harness artificial intelligence, digital
-              technologies and governance frameworks to build trusted, transparent, accountable,
-              inclusive and future-ready institutions.
+              To empower governments, institutions, regulators, businesses,
+              development organisations and communities to harness artificial
+              intelligence, digital technologies and governance frameworks to
+              build trusted, transparent, accountable, inclusive and
+              future-ready institutions.
             </p>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Purpose</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+              Purpose
+            </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-              To help Africa build the governance capability required to innovate responsibly,
-              strengthen institutions and create sustainable public value in the digital age.
+              To help Africa build the governance capability required to
+              innovate responsibly, strengthen institutions and create
+              sustainable public value in the digital age.
             </p>
           </div>
         </Container>
@@ -84,18 +98,20 @@ export function AboutPage() {
       <section className="py-20">
         <Container className="grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-center">
           {/* About team/leadership photo, min. 1400x1000px — client-supplied preferred, this is the stock fallback slot. */}
-          <PlaceholderImage
-            label="About team / leadership photo"
-            icon={FiUsers}
-            aspect="portrait"
+          <ImageWithOverlay
+            src={aboutPageTeam}
+            alt="About team / leadership photo"
             className="rounded-lg lg:order-2"
           />
           <div className="lg:order-1">
-            <SectionHeading eyebrow="Our People" title="Built by practitioners, for practitioners" />
+            <SectionHeading
+              eyebrow="Our People"
+              title="Built by practitioners, for practitioners"
+            />
             <p className="mt-6 text-base leading-relaxed text-ink-muted">
-              DGA is led by a multidisciplinary team spanning governance, law, policy, technology
-              and executive education — combining African institutional experience with global
-              governance practice.
+              DGA is led by a multidisciplinary team spanning governance, law,
+              policy, technology and executive education — combining African
+              institutional experience with global governance practice.
             </p>
           </div>
         </Container>
@@ -110,8 +126,12 @@ export function AboutPage() {
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
                   <value.icon aria-hidden size={20} />
                 </span>
-                <h3 className="mt-4 text-base font-semibold text-ink">{value.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{value.description}</p>
+                <h3 className="mt-4 text-base font-semibold text-ink">
+                  {value.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>

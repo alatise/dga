@@ -1,13 +1,12 @@
-import { FiUsers } from "react-icons/fi";
 import { PageMeta } from "../components/seo/PageMeta";
 import { Container } from "../components/layout/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Card } from "../components/ui/Card";
-import { PlaceholderImage } from "../components/ui/PlaceholderImage";
 import { Reveal } from "../components/ui/Reveal";
 import { staggerDelay } from "../lib/motion";
 import { SERVICES } from "../data/services";
-
+import servicesHero from "../assets/images/Services_top_hero.webp";
+import { ImageWithOverlay } from "../components/ui/ImageOverlay";
 export function ServicesPage() {
   return (
     <>
@@ -23,11 +22,11 @@ export function ServicesPage() {
             title="Governance-Led Solutions for a Changing Digital World"
             subtitle="We help organisations strengthen governance, build institutional capability and adopt digital technologies responsibly."
           />
-          {/* Services top hero image, min. 1600x900px — reuses Hero Photo 1 or 2 with the same navy duotone. */}
-          <PlaceholderImage
-            label="Services hero image (reuses Hero Photo 1/2)"
-            icon={FiUsers}
-            aspect="video"
+
+          <ImageWithOverlay
+            src={servicesHero}
+            alt="Services hero image "
+            className="rounded-lg"
           />
         </Container>
       </section>
@@ -35,14 +34,18 @@ export function ServicesPage() {
       <section className="py-20">
         <Container className="space-y-10">
           {SERVICES.map((service, index) => (
-            <Reveal key={service.slug} delayMs={staggerDelay(index, 60, 300)}>
+            <Reveal key={service.slug} delayMs={staggerDelay(index)}>
               <Card className="grid gap-8 lg:grid-cols-[1fr_1.3fr]">
                 <div>
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
                     <service.icon aria-hidden size={20} />
                   </span>
-                  <h2 className="mt-4 text-xl font-semibold text-ink">{service.title}</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">{service.summary}</p>
+                  <h2 className="mt-4 text-xl font-semibold text-ink">
+                    {service.title}
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                    {service.summary}
+                  </p>
                 </div>
 
                 <div className="grid gap-6 border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
@@ -60,7 +63,9 @@ export function ServicesPage() {
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
                       Outcome
                     </p>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink">{service.outcome}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-ink">
+                      {service.outcome}
+                    </p>
                   </div>
                 </div>
               </Card>

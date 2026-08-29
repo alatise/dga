@@ -16,9 +16,11 @@ import { Badge } from "../components/ui/Badge";
 import { Card } from "../components/ui/Card";
 import { Reveal } from "../components/ui/Reveal";
 import { staggerDelay } from "../lib/motion";
-import { HeroVisual } from "../components/home/HeroVisual";
+import heroImage1 from "../assets/images/Hero-1.webp";
 import { ArticleCard } from "../components/cards/ArticleCard";
 import { ARTICLES } from "../data/articles";
+import { motion } from "framer-motion";
+import { ImageWithOverlay } from "../components/ui/ImageOverlay";
 
 const WHAT_WE_DO = [
   {
@@ -83,19 +85,63 @@ const STRENGTHS = [
 ];
 
 const FRAMEWORK_STAGES = [
-  { step: "01", title: "Discover", description: "Understand the organisation, its maturity, priorities, risks and opportunities." },
-  { step: "02", title: "Design", description: "Create the future-state strategy, governance framework and implementation roadmap." },
-  { step: "03", title: "Build", description: "Develop practical policies, tools, operating models and governance resources." },
-  { step: "04", title: "Implement", description: "Support adoption, organisational change and implementation." },
-  { step: "05", title: "Enable", description: "Build leadership capability, workforce knowledge and institutional confidence." },
-  { step: "06", title: "Monitor & Improve", description: "Measure progress, strengthen assurance and support continuous improvement." },
+  {
+    step: "01",
+    title: "Discover",
+    description:
+      "Understand the organisation, its maturity, priorities, risks and opportunities.",
+  },
+  {
+    step: "02",
+    title: "Design",
+    description:
+      "Create the future-state strategy, governance framework and implementation roadmap.",
+  },
+  {
+    step: "03",
+    title: "Build",
+    description:
+      "Develop practical policies, tools, operating models and governance resources.",
+  },
+  {
+    step: "04",
+    title: "Implement",
+    description: "Support adoption, organisational change and implementation.",
+  },
+  {
+    step: "05",
+    title: "Enable",
+    description:
+      "Build leadership capability, workforce knowledge and institutional confidence.",
+  },
+  {
+    step: "06",
+    title: "Monitor & Improve",
+    description:
+      "Measure progress, strengthen assurance and support continuous improvement.",
+  },
 ];
 
 const FEATURED_PROGRAMMES = [
-  { title: "Digital Governance and AI Leadership", audience: "For ministers, executives, boards and senior organisational leaders." },
-  { title: "Data Governance and Institutional Transformation", audience: "For government institutions, regulators and large organisations." },
-  { title: "The Future Corporate Legal Function", audience: "For General Counsel, in-house lawyers and governance professionals." },
-  { title: "Enterprise Governance 2030™", audience: "For Legal, Compliance, Risk and Internal Audit leaders." },
+  {
+    title: "Digital Governance and AI Leadership",
+    audience:
+      "For ministers, executives, boards and senior organisational leaders.",
+  },
+  {
+    title: "Data Governance and Institutional Transformation",
+    audience:
+      "For government institutions, regulators and large organisations.",
+  },
+  {
+    title: "The Future Corporate Legal Function",
+    audience:
+      "For General Counsel, in-house lawyers and governance professionals.",
+  },
+  {
+    title: "Enterprise Governance 2030™",
+    audience: "For Legal, Compliance, Risk and Internal Audit leaders.",
+  },
 ];
 
 const GOVERNOVA_CAPABILITIES = [
@@ -114,55 +160,134 @@ export function HomePage() {
         title="Digital Governance Africa"
         description="We help governments, institutions and organisations strengthen digital governance, adopt artificial intelligence responsibly and build trusted, resilient and future-ready institutions."
       />
-
       <section className="border-b border-line bg-surface-alt">
         <Container className="grid gap-10 py-24 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+          {/* Text content */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                },
+              },
+            }}
+          >
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5 }}
+              className="text-xs font-semibold uppercase tracking-[0.2em] text-gold"
+            >
               Digital Governance Africa
-            </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            </motion.p>
+
+            <motion.h1
+              variants={{
+                hidden: { opacity: 0, y: 25 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6 }}
+              className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl"
+            >
               Governing Africa's Digital Future
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
-              We help governments, institutions and organisations strengthen digital governance,
-              adopt artificial intelligence responsibly and build trusted, resilient and
-              future-ready institutions.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            </motion.h1>
+
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6 }}
+              className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted"
+            >
+              We help governments, institutions and organisations strengthen
+              digital governance, adopt artificial intelligence responsibly and
+              build trusted, resilient and future-ready institutions.
+            </motion.p>
+
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6 }}
+              className="mt-8 flex flex-wrap gap-4"
+            >
               <Button to="/services" variant="primary" magnetic>
                 Explore Our Services <FiArrowRight aria-hidden size={16} />
               </Button>
+
               <Button to="/contact" variant="secondary">
                 Partner With Us
               </Button>
-            </div>
-            <p className="mt-8 text-sm font-medium text-ink-muted">
-              Digital Governance &middot; Responsible AI &middot; Data Governance &middot;
-              Institutional Transformation
-            </p>
-          </div>
+            </motion.div>
 
-          <HeroVisual />
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5 }}
+              className="mt-8 text-sm font-medium text-ink-muted"
+            >
+              Digital Governance &middot; Responsible AI &middot; Data
+              Governance &middot; Institutional Transformation
+            </motion.p>
+          </motion.div>
+
+          {/* Hero image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, x: 30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.3,
+              ease: "easeOut",
+            }}
+            className=" overflow-hidden rounded-3xl"
+          >
+            <ImageWithOverlay
+              src={heroImage1}
+              alt="Africa constellation map — a network of connected governance nodes"
+              className="h-full w-full object-contain "
+            />
+          </motion.div>
         </Container>
       </section>
 
       <section className="py-20">
         <Container className="max-w-3xl">
-          <SectionHeading title="Technology Alone Does Not Transform Institutions" />
-          <p className="mt-6 text-base leading-relaxed text-ink-muted">
-            Successful digital transformation requires trusted data, responsible leadership,
-            effective governance and the institutional capability to turn innovation into
-            sustainable value. Digital Governance Africa brings these elements together through
-            advisory services, executive education, research, governance methodologies and
-            practical digital solutions.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <SectionHeading title="Technology Alone Does Not Transform Institutions" />
+
+            <p className="mt-6 text-base leading-relaxed text-ink-muted">
+              Successful digital transformation requires trusted data,
+              responsible leadership, effective governance and the institutional
+              capability to turn innovation into sustainable value. Digital
+              Governance Africa brings these elements together through advisory
+              services, executive education, research, governance methodologies
+              and practical digital solutions.
+            </p>
+          </motion.div>
         </Container>
       </section>
 
       <section className="border-t border-line bg-surface-alt py-24">
         <Container>
-          <SectionHeading eyebrow="What We Do" title="Practical Governance for the Digital Age" />
+          <SectionHeading
+            eyebrow="What We Do"
+            title="Practical Governance for the Digital Age"
+          />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {WHAT_WE_DO.map((area, index) => (
               <Reveal key={area.title} delayMs={staggerDelay(index)}>
@@ -170,9 +295,17 @@ export function HomePage() {
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
                     <area.icon aria-hidden size={20} />
                   </span>
-                  <h3 className="mt-4 text-lg font-semibold text-ink">{area.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{area.summary}</p>
-                  <Button to={area.to} variant="ghost" className="mt-4 self-start">
+                  <h3 className="mt-4 text-lg font-semibold text-ink">
+                    {area.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
+                    {area.summary}
+                  </p>
+                  <Button
+                    to={area.to}
+                    variant="ghost"
+                    className="mt-4 self-start"
+                  >
                     {area.linkLabel} <FiArrowRight aria-hidden size={14} />
                   </Button>
                 </Card>
@@ -212,14 +345,21 @@ export function HomePage() {
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {FRAMEWORK_STAGES.map((stage) => (
               <div key={stage.step}>
-                <span className="text-sm font-semibold text-gold">{stage.step}</span>
-                <h3 className="mt-2 text-lg font-semibold text-ink">{stage.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{stage.description}</p>
+                <span className="text-sm font-semibold text-gold">
+                  {stage.step}
+                </span>
+                <h3 className="mt-2 text-lg font-semibold text-ink">
+                  {stage.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  {stage.description}
+                </p>
               </div>
             ))}
           </div>
           <p className="mt-10 text-sm font-medium text-gold">
-            Discover &rarr; Design &rarr; Build &rarr; Implement &rarr; Enable &rarr; Monitor &amp; Improve
+            Discover &rarr; Design &rarr; Build &rarr; Implement &rarr; Enable
+            &rarr; Monitor &amp; Improve
           </p>
         </Container>
       </section>
@@ -239,8 +379,12 @@ export function HomePage() {
             {FEATURED_PROGRAMMES.map((programme, index) => (
               <Reveal key={programme.title} delayMs={staggerDelay(index)}>
                 <Card>
-                  <h3 className="text-base font-semibold text-ink">{programme.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">{programme.audience}</p>
+                  <h3 className="text-base font-semibold text-ink">
+                    {programme.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                    {programme.audience}
+                  </p>
                 </Card>
               </Reveal>
             ))}
@@ -256,10 +400,11 @@ export function HomePage() {
               GOVERNOVA AI™ — Intelligent Governance for the Digital Age
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75">
-              GOVERNOVA AI™ is Digital Governance Africa's flagship technology initiative. We are
-              developing an intelligent governance platform designed to help organisations
-              strengthen governance, improve institutional learning, support responsible AI
-              adoption and make better-informed decisions.
+              GOVERNOVA AI™ is Digital Governance Africa's flagship technology
+              initiative. We are developing an intelligent governance platform
+              designed to help organisations strengthen governance, improve
+              institutional learning, support responsible AI adoption and make
+              better-informed decisions.
             </p>
             <Button to="/governova" variant="primary" className="mt-6" magnetic>
               Explore the Vision <FiArrowRight aria-hidden size={16} />
@@ -281,7 +426,10 @@ export function HomePage() {
       <section className="py-24">
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading eyebrow="Insights" title="Ideas Shaping Africa's Digital Future" />
+            <SectionHeading
+              eyebrow="Insights"
+              title="Ideas Shaping Africa's Digital Future"
+            />
             <Button to="/insights" variant="ghost">
               View All Insights <FiArrowRight aria-hidden size={16} />
             </Button>
@@ -312,16 +460,22 @@ export function HomePage() {
 
       <section className="border-t border-line bg-surface-alt py-20">
         <Container className="flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-2xl text-3xl font-bold text-ink sm:text-4xl">
-            Ready to Govern, Innovate and Transform?
-          </h2>
-          <p className="max-w-xl text-base text-ink-muted">
-            Partner with Digital Governance Africa to build a trusted, resilient and
-            future-ready institution.
-          </p>
-          <Button to="/contact" variant="primary">
-            Contact Us <FiArrowRight aria-hidden size={16} />
-          </Button>
+          <Reveal>
+            <div className="flex flex-col items-center gap-6">
+              <h2 className="max-w-2xl text-3xl font-bold text-ink sm:text-4xl">
+                Ready to Govern, Innovate and Transform?
+              </h2>
+
+              <p className="max-w-xl text-base text-ink-muted">
+                Partner with Digital Governance Africa to build a trusted,
+                resilient and future-ready institution.
+              </p>
+
+              <Button to="/contact" variant="primary">
+                Contact Us <FiArrowRight aria-hidden size={16} />
+              </Button>
+            </div>
+          </Reveal>
         </Container>
       </section>
     </>

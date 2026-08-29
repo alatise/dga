@@ -46,29 +46,37 @@ export function GovernovaPage() {
             Intelligent Governance for the Digital Age
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">
-            GOVERNOVA AI™ is Digital Governance Africa's flagship digital innovation initiative.
-            We are developing a platform that will help organisations strengthen governance,
-            support institutional learning and make more informed decisions through responsible
-            use of artificial intelligence.
+            GOVERNOVA AI™ is Digital Governance Africa's flagship digital
+            innovation initiative. We are developing a platform that will help
+            organisations strengthen governance, support institutional learning
+            and make more informed decisions through responsible use of
+            artificial intelligence.
           </p>
         </Container>
       </section>
 
       <section className="py-20">
         <Container className="max-w-3xl">
-          <SectionHeading eyebrow="Why We Are Building It" title="Bridging a fragmented governance landscape" />
+          <SectionHeading
+            eyebrow="Why We Are Building It"
+            title="Bridging a fragmented governance landscape"
+          />
           <p className="mt-6 text-base leading-relaxed text-ink-muted">
-            Governance information is often fragmented across policies, documents, systems and
-            departments. Leaders need more effective ways to access knowledge, monitor
-            obligations and turn information into practical insight. GOVERNOVA AI™ is being
-            designed to help bridge this gap.
+            Governance information is often fragmented across policies,
+            documents, systems and departments. Leaders need more effective ways
+            to access knowledge, monitor obligations and turn information into
+            practical insight. GOVERNOVA AI™ is being designed to help bridge
+            this gap.
           </p>
         </Container>
       </section>
 
       <section className="border-t border-line bg-surface-alt py-20">
         <Container>
-          <SectionHeading eyebrow="Planned Capability Areas" title="What GOVERNOVA AI™ will support" />
+          <SectionHeading
+            eyebrow="Planned Capability Areas"
+            title="What GOVERNOVA AI™ will support"
+          />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {CAPABILITY_AREAS.map((area) => (
               <div key={area.label} className="flex flex-col items-start gap-3">
@@ -86,7 +94,8 @@ export function GovernovaPage() {
         <Container className="flex flex-col items-center gap-6 text-center">
           <Badge tone="gold">Status: In Development</Badge>
           <h2 className="max-w-xl text-2xl font-bold text-ink sm:text-3xl">
-            Interested in becoming a strategic partner, pilot organisation or contributor?
+            Interested in becoming a strategic partner, pilot organisation or
+            contributor?
           </h2>
           <Button to="/contact" variant="primary">
             Partner With GOVERNOVA AI™ <FiArrowRight aria-hidden size={16} />
@@ -100,7 +109,8 @@ export function GovernovaPage() {
             Be the First to Know
           </h2>
           <p className="max-w-md text-sm leading-relaxed text-body-dark">
-            Get notified as GOVERNOVA AI™ moves from development toward its first pilots.
+            Get notified as GOVERNOVA AI™ moves from development toward its
+            first pilots.
           </p>
           <NewsletterForm
             variant="dark"

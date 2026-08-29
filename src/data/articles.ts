@@ -4,6 +4,7 @@ import type { Article } from "../types/content";
 // per the Scope doc's "content + metadata + image direction provided
 // separately" note. Swap title/summary/body/date once the real copy lands —
 // the structure (category, reading time, gating) is final.
+
 export const ARTICLES: Article[] = [
   {
     slug: "governing-ai-in-african-institutions",

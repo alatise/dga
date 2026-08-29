@@ -14,17 +14,28 @@ const DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 });
 
-export function ArticleCard({ article, featured = false }: { article: Article; featured?: boolean }) {
+export function ArticleCard({
+  article,
+  featured = false,
+}: {
+  article: Article;
+  featured?: boolean;
+}) {
   const cover = article.coverImage ?? ARTICLE_CATEGORY_COVERS[article.category];
   const [revealed, setRevealed] = useState(false);
+
   const imageWrapperClasses = cn(
-    "relative -m-6 mb-4 overflow-hidden sm:m-0",
-    featured ? "aspect-[21/9] rounded-b-none sm:rounded-lg" : "aspect-video rounded-b-none sm:rounded-lg",
+    "relative -m-6 mb-4 overflow-hidden",
+    featured
+      ? "aspect-[21/9] rounded-b-none sm:m-0 sm:rounded-lg"
+      : "aspect-video rounded-b-none sm:m-0 sm:rounded-lg",
   );
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     // Touch equivalent: first tap reveals the hover state, second tap navigates.
-    const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    const isTouch = window.matchMedia(
+      "(hover: none) and (pointer: coarse)",
+    ).matches;
     if (isTouch && !revealed) {
       event.preventDefault();
       setRevealed(true);
@@ -37,7 +48,9 @@ export function ArticleCard({ article, featured = false }: { article: Article; f
       onClick={handleClick}
       className={cn("group block", revealed && "is-revealed")}
     >
-      <Card className={featured ? "grid gap-6 sm:grid-cols-2 sm:items-center" : ""}>
+      <Card
+        className={featured ? "grid gap-6 sm:grid-cols-2 sm:items-center" : ""}
+      >
         <div className={imageWrapperClasses}>
           {cover ? (
             <img
@@ -79,12 +92,22 @@ export function ArticleCard({ article, featured = false }: { article: Article; f
               </span>
             )}
           </div>
-          <h3 className={featured ? "mt-3 text-2xl font-semibold text-ink" : "mt-3 text-lg font-semibold text-ink"}>
+          <h3
+            className={
+              featured
+                ? "mt-3 text-2xl font-semibold text-ink"
+                : "mt-3 text-lg font-semibold text-ink"
+            }
+          >
             {article.title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-ink-muted">{article.summary}</p>
+          <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+            {article.summary}
+          </p>
           <div className="mt-3 flex items-center gap-2 text-xs text-ink-muted">
-            <time dateTime={article.date}>{DATE_FORMATTER.format(new Date(article.date))}</time>
+            <time dateTime={article.date}>
+              {DATE_FORMATTER.format(new Date(article.date))}
+            </time>
             <span aria-hidden>&middot;</span>
             <span>{article.readingTime}</span>
           </div>

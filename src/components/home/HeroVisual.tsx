@@ -9,9 +9,7 @@ import constellationMap from "../../assets/illustrations/hero-governance-network
 
 const AUTO_CYCLE_MS = 9000;
 
-type Slot =
-  | { type: "photo"; label: string }
-  | { type: "graphic" };
+type Slot = { type: "photo"; label: string } | { type: "graphic" };
 
 const SLOTS: Slot[] = [
   { type: "photo", label: "Hero Photo 1 — Boardroom wide shot" },
@@ -29,7 +27,9 @@ export function HeroVisual() {
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    const isFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const isFinePointer = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
     if (isFinePointer) return; // desktop advances on hover instead, see handleMouseEnter
 
     const interval = setInterval(() => {

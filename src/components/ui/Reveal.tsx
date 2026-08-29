@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { cn } from "../../lib/cn";
+import { motion } from "framer-motion";
 
 interface RevealProps {
   children: ReactNode;
@@ -10,19 +10,19 @@ interface RevealProps {
 }
 
 export function Reveal({ children, className, delayMs = 0 }: RevealProps) {
-  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
-
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "transition-[opacity,transform] duration-600 ease-scroll",
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
-        className,
-      )}
-      style={{ transitionDelay: isVisible ? `${delayMs}ms` : "0ms" }}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.6,
+        delay: delayMs / 1000,
+        ease: "easeOut",
+      }}
+      className={cn(className)}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

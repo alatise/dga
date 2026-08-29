@@ -8,6 +8,7 @@ import { MobileMenu } from "./MobileMenu";
 import { Button } from "../ui/Button";
 import { useScrollThreshold } from "../../hooks/useScrollThreshold";
 import { cn } from "../../lib/cn";
+import { AnimatePresence } from "framer-motion";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,20 +24,26 @@ export function Header() {
       <Container
         className={cn(
           "flex items-center justify-between transition-[height] duration-250 ease-standard",
-          scrolled ? "h-16" : "h-24",
+          scrolled ? "h-20" : "h-24",
         )}
       >
         <RouterNavLink
           to="/"
           className="flex items-center gap-3"
-          onClick={() => setMobileOpen(false)}
+          onClick={() => {
+            setMobileOpen(false);
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
         >
           <img
             src={logo}
             alt="Digital Governance Africa"
             className={cn(
               "w-auto transition-[height] duration-250 ease-standard",
-              scrolled ? "h-10" : "h-32",
+              scrolled ? "h-12" : "h-16",
             )}
           />
         </RouterNavLink>
@@ -51,7 +58,9 @@ export function Header() {
                 cn(
                   "relative py-1 text-sm font-medium transition-colors duration-200 ease-standard hover:text-gold",
                   "after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-gold after:transition-transform after:duration-300 after:ease-scroll hover:after:scale-x-100",
-                  isActive ? "font-semibold text-gold after:scale-x-100" : "text-ink-muted",
+                  isActive
+                    ? "font-semibold text-gold after:scale-x-100"
+                    : "text-ink-muted",
                 )
               }
             >
@@ -81,7 +90,9 @@ export function Header() {
         </button>
       </Container>
 
-      {mobileOpen && <MobileMenu onNavigate={() => setMobileOpen(false)} />}
+      <AnimatePresence>
+        {mobileOpen && <MobileMenu onNavigate={() => setMobileOpen(false)} />}
+      </AnimatePresence>
     </header>
   );
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
-import { FaLinkedin, FaYoutube, FaTiktok, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaTiktok, FaInstagram } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import { NAV_LINKS } from "../../data/navigation";
 import { SITE_CONFIG } from "../../data/siteConfig";
@@ -29,13 +29,6 @@ export function Footer() {
                 className="text-white/70 hover:text-white"
               >
                 <FaLinkedin aria-hidden size={18} />
-              </a>
-              <a
-                href={SITE_CONFIG.social.youtube}
-                aria-label="DGA on YouTube"
-                className="text-white/70 hover:text-white"
-              >
-                <FaYoutube aria-hidden size={18} />
               </a>
               <a
                 href={SITE_CONFIG.social.tiktok}

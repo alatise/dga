@@ -8,6 +8,7 @@ interface SectionHeadingProps {
   subtitle?: ReactNode;
   align?: "left" | "center";
   className?: string;
+  titleClassName?: string;
 }
 
 export function SectionHeading({
@@ -16,6 +17,7 @@ export function SectionHeading({
   subtitle,
   align = "left",
   className,
+  titleClassName,
 }: SectionHeadingProps) {
   return (
     <Reveal
@@ -30,9 +32,15 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+      <h2
+        className={cn(
+          "mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl",
+          titleClassName,
+        )}
+      >
         {title}
       </h2>
+
       {subtitle && (
         <p className="mt-4 text-base leading-relaxed text-ink-muted sm:text-lg">
           {subtitle}

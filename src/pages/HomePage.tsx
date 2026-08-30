@@ -21,6 +21,7 @@ import { ArticleCard } from "../components/cards/ArticleCard";
 import { ARTICLES } from "../data/articles";
 import { motion } from "framer-motion";
 import { ImageWithOverlay } from "../components/ui/ImageOverlay";
+import { HeroVisual } from "../components/home/HeroVisual";
 
 const WHAT_WE_DO = [
   {
@@ -251,11 +252,7 @@ export function HomePage() {
             }}
             className=" overflow-hidden rounded-3xl"
           >
-            <ImageWithOverlay
-              src={heroImage1}
-              alt="Africa constellation map — a network of connected governance nodes"
-              className="h-full w-full object-contain "
-            />
+            <HeroVisual />
           </motion.div>
         </Container>
       </section>

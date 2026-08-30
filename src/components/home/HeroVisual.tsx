@@ -1,23 +1,36 @@
 import { useEffect, useRef, useState } from "react";
-import { FiUsers, FiCamera } from "react-icons/fi";
-import { PlaceholderImage } from "../ui/PlaceholderImage";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { cn } from "../../lib/cn";
 // Reuses the network/constellation illustration built earlier — thematically
 // identical to the "Africa constellation map" asset, already navy-toned.
 import constellationMap from "../../assets/illustrations/hero-governance-network.svg";
+import heroPhoto1 from "../../assets/images/Hero-1.webp";
+import heroPhoto2 from "../../assets/images/Team_Photo_About_Page.webp";
+import Africamap from "../../assets/images/DGA_MAP.webp";
 
-const AUTO_CYCLE_MS = 9000;
+import { ImageWithOverlay } from "../ui/ImageOverlay";
 
-type Slot = { type: "photo"; label: string } | { type: "graphic" };
+const AUTO_CYCLE_MS = 4000;
+
+type Slot = { type: "photo"; src: string; alt: string } | { type: "graphic" };
 
 const SLOTS: Slot[] = [
-  { type: "photo", label: "Hero Photo 1 — Boardroom wide shot" },
-  { type: "photo", label: "Hero Photo 2 — Candid / standing moment" },
-  { type: "graphic" },
+  {
+    type: "photo",
+    src: heroPhoto1,
+    alt: "Digital Governance Africa leadership meeting",
+  },
+  {
+    type: "photo",
+    src: heroPhoto2,
+    alt: "Digital Governance Africa team",
+  },
+  {
+    type: "photo",
+    src: Africamap,
+    alt: "Digital Governance Africa Map",
+  },
 ];
-
-const PHOTO_ICONS = [FiUsers, FiCamera];
 
 export function HeroVisual() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -27,14 +40,10 @@ export function HeroVisual() {
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    const isFinePointer = window.matchMedia(
-      "(hover: hover) and (pointer: fine)",
-    ).matches;
-    if (isFinePointer) return; // desktop advances on hover instead, see handleMouseEnter
-
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % SLOTS.length);
     }, AUTO_CYCLE_MS);
+
     return () => clearInterval(interval);
   }, [prefersReducedMotion]);
 
@@ -63,20 +72,19 @@ export function HeroVisual() {
           >
             {slot.type === "photo" ? (
               <div className="relative h-full w-full">
-                <PlaceholderImage
-                  label={slot.label}
-                  icon={PHOTO_ICONS[index]}
-                  aspect="square"
+                <img
+                  src={slot.src}
+                  alt={slot.alt}
                   className={cn(
-                    "h-full rounded-none",
+                    "absolute inset-0 h-full w-full object-cover",
                     isActive && !prefersReducedMotion && "animate-kenburns",
                   )}
                 />
-                {/* Navy duotone overlay ~25% opacity, per the imagery spec. */}
+
                 <div className="absolute inset-0 bg-navy/25" />
               </div>
             ) : (
-              <img
+              <ImageWithOverlay
                 key={isActive ? "active" : "idle"}
                 src={constellationMap}
                 alt="Africa constellation map — a network of connected governance nodes"

@@ -215,13 +215,23 @@ export function HomePage() {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.6 }}
-              className="mt-8 flex flex-wrap gap-4"
+              className="mt-8 flex flex-nowrap gap-2 sm:gap-3"
             >
-              <Button to="/services" variant="primary" magnetic>
-                Explore Our Services <FiArrowRight aria-hidden size={16} />
+              <Button
+                to="/services"
+                variant="primary"
+                magnetic
+                className="px-3 py-2.5 text-xs sm:px-5 sm:py-3 sm:text-sm"
+              >
+                Explore Our Services
+                <FiArrowRight aria-hidden size={15} />
               </Button>
 
-              <Button to="/contact" variant="secondary">
+              <Button
+                to="/contact"
+                variant="secondary"
+                className="px-3 py-2.5 text-xs sm:px-5 sm:py-3 sm:text-sm"
+              >
                 Partner With Us
               </Button>
             </motion.div>

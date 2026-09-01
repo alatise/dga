@@ -1,19 +1,23 @@
-import { FiFlag, FiBriefcase } from "react-icons/fi";
-import type { IconType } from "react-icons";
 import { PageMeta } from "../components/seo/PageMeta";
 import { Container } from "../components/layout/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { ProgramCard } from "../components/cards/ProgramCard";
 import { InquiryForm } from "../components/forms/InquiryForm";
-import { PlaceholderImage } from "../components/ui/PlaceholderImage";
 import { Reveal } from "../components/ui/Reveal";
 import { staggerDelay } from "../lib/motion";
 import { PROGRAMS, PROGRAMME_CATEGORIES } from "../data/programs";
+import program1 from "../assets/images/programmes_1.webp";
+import program2 from "../assets/images/programmes_2.webp";
+import { motion } from "framer-motion";
+import { ImageWithOverlay } from "../components/ui/ImageOverlay";
 
 // Category header images, min. 1400x800px — only these two categories have one per the imagery spec.
-const CATEGORY_HEADER_ICONS: Partial<Record<(typeof PROGRAMME_CATEGORIES)[number], IconType>> = {
-  "Government and Public Sector": FiFlag,
-  "Corporate Governance": FiBriefcase,
+
+const CATEGORY_HEADER_IMAGES: Partial<
+  Record<(typeof PROGRAMME_CATEGORIES)[number], string>
+> = {
+  "Government and Public Sector": program1,
+  "Corporate Governance": program2,
 };
 
 export function ProgrammesPage() {
@@ -35,24 +39,43 @@ export function ProgrammesPage() {
       </section>
 
       {PROGRAMME_CATEGORIES.map((category, sectionIndex) => {
-        const headerIcon = CATEGORY_HEADER_ICONS[category];
+        const headerImage = CATEGORY_HEADER_IMAGES[category];
+
         return (
           <section
             key={category}
-            className={sectionIndex % 2 === 1 ? "border-t border-line bg-surface-alt py-20" : "py-20"}
+            className={
+              sectionIndex % 2 === 1
+                ? "border-t border-line bg-surface-alt py-20"
+                : "py-20"
+            }
           >
             <Container>
               <SectionHeading title={category} />
-              {headerIcon && (
-                <PlaceholderImage
-                  label={`${category} — category header image`}
-                  icon={headerIcon}
-                  aspect="wide"
-                  className="mt-6"
-                />
+
+              {headerImage && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, x: 30 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.3,
+                    ease: "easeOut",
+                  }}
+                  className="mt-6 overflow-hidden rounded-3xl"
+                >
+                  <ImageWithOverlay
+                    src={headerImage}
+                    alt={category}
+                    className="h-full w-full object-contain"
+                  />
+                </motion.div>
               )}
+
               <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {PROGRAMS.filter((program) => program.category === category).map((program, index) => (
+                {PROGRAMS.filter(
+                  (program) => program.category === category,
+                ).map((program, index) => (
                   <Reveal key={program.slug} delayMs={staggerDelay(index)}>
                     <ProgramCard program={program} />
                   </Reveal>

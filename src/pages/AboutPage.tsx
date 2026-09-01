@@ -57,13 +57,13 @@ export function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-t border-line bg-surface-alt py-20">
+      <section className="border-t border-line  bg-navy py-20">
         <Container className="grid gap-10 sm:grid-cols-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               Vision
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+            <p className="mt-3 text-sm leading-relaxed text-white/75">
               To become Africa's leading centre of excellence for Digital
               Governance and Responsible Artificial Intelligence, empowering
               trusted institutions, transformational leaders and sustainable
@@ -74,7 +74,7 @@ export function AboutPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               Mission
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+            <p className="mt-3 text-sm leading-relaxed text-white/75">
               To empower governments, institutions, regulators, businesses,
               development organisations and communities to harness artificial
               intelligence, digital technologies and governance frameworks to
@@ -86,7 +86,7 @@ export function AboutPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               Purpose
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+            <p className="mt-3 text-sm leading-relaxed text-white/75">
               To help Africa build the governance capability required to
               innovate responsibly, strengthen institutions and create
               sustainable public value in the digital age.

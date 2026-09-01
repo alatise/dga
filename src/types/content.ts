@@ -24,7 +24,11 @@ export interface AdvisoryService {
   outcome: string;
 }
 
-export type ArticleCategory = "AI Governance" | "Data Governance" | "Executive Insights" | "Policy";
+export type ArticleCategory =
+  | "AI Governance"
+  | "Data Governance"
+  | "Executive Insights"
+  | "Policy";
 
 export interface Article {
   slug: string;

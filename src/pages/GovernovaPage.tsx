@@ -16,7 +16,7 @@ import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/Badge";
 import { NewsletterForm } from "../components/forms/NewsletterForm";
 // Reuses the constellation map asset — no new imagery required for this section.
-import constellationMap from "../assets/illustrations/hero-governance-network.svg";
+import constellationMap from "../assets/images/DGA_MAP.webp";
 
 const CAPABILITY_AREAS = [
   { icon: FiShield, label: "Governance and policy support" },
@@ -55,13 +55,14 @@ export function GovernovaPage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 bg-navy">
         <Container className="max-w-3xl">
           <SectionHeading
             eyebrow="Why We Are Building It"
             title="Bridging a fragmented governance landscape"
+            titleClassName="text-white"
           />
-          <p className="mt-6 text-base leading-relaxed text-ink-muted">
+          <p className="mt-6 text-base leading-relaxed text-white/75 ">
             Governance information is often fragmented across policies,
             documents, systems and departments. Leaders need more effective ways
             to access knowledge, monitor obligations and turn information into
@@ -122,9 +123,9 @@ export function GovernovaPage() {
 
         <img
           src={constellationMap}
-          alt=""
+          alt="A glowing map of Africa"
           aria-hidden
-          className="pointer-events-none mx-auto mt-16 w-full max-w-3xl [mask-image:linear-gradient(to_bottom,black,transparent)]"
+          className="pointer-events-none mx-auto mt-16 w-full max-w-3xl rounded-3xl [mask-image:linear-gradient(to_bottom,black,transparent)]"
         />
       </section>
     </>

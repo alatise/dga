@@ -22,7 +22,10 @@ const CATEGORIES: Array<ArticleCategory | "All"> = [
 export function InsightsPage() {
   const [category, setCategory] = useState<(typeof CATEGORIES)[number]>("All");
 
-  const featured = useMemo(() => ARTICLES.find((article) => article.featured), []);
+  const featured = useMemo(
+    () => ARTICLES.find((article) => article.featured),
+    [],
+  );
   const rest = useMemo(
     () =>
       ARTICLES.filter((article) => article !== featured).filter(
@@ -58,7 +61,11 @@ export function InsightsPage() {
 
       <section className="pb-20">
         <Container>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+          <div
+            className="flex flex-wrap gap-2"
+            role="group"
+            aria-label="Filter by category"
+          >
             {CATEGORIES.map((item) => (
               <button
                 key={item}
@@ -90,7 +97,9 @@ export function InsightsPage() {
           </div>
 
           {rest.length === 0 && (
-            <p className="mt-8 text-sm text-ink-muted">No items in this category yet.</p>
+            <p className="mt-8 text-sm text-ink-muted">
+              No items in this category yet.
+            </p>
           )}
         </Container>
       </section>
@@ -99,9 +108,12 @@ export function InsightsPage() {
         <Container className="grid gap-10 lg:grid-cols-2">
           <InquiryForm variant="gated-download" />
           <div className="flex flex-col justify-center">
-            <h3 className="text-lg font-semibold text-ink">Never miss a briefing</h3>
+            <h3 className="text-lg font-semibold text-ink">
+              Never miss a briefing
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-              Subscribe for new research, executive briefings, and programme updates.
+              Subscribe for new research, executive briefings, and programme
+              updates.
             </p>
             <div className="mt-4">
               <NewsletterForm />

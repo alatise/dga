@@ -16,11 +16,9 @@ import { Badge } from "../components/ui/Badge";
 import { Card } from "../components/ui/Card";
 import { Reveal } from "../components/ui/Reveal";
 import { staggerDelay } from "../lib/motion";
-import heroImage1 from "../assets/images/Hero-1.webp";
 import { ArticleCard } from "../components/cards/ArticleCard";
 import { ARTICLES } from "../data/articles";
 import { motion } from "framer-motion";
-import { ImageWithOverlay } from "../components/ui/ImageOverlay";
 import { HeroVisual } from "../components/home/HeroVisual";
 
 const WHAT_WE_DO = [

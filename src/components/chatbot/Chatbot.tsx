@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FiArrowUp, FiMessageCircle, FiUser, FiX } from "react-icons/fi";
+import { FiMessageCircle, FiUser, FiX } from "react-icons/fi";
+import { FaTelegramPlane } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -97,7 +98,7 @@ export function Chatbot() {
                     <button
                       type="button"
                       onClick={() => setInput("What services do you offer?")}
-                      className="rounded-full border border-line px-4 py-2 text-xs font-medium text-ink-muted transition-colors hover:border-gold hover:text-gold"
+                      className="cursor-pointer rounded-full border border-line px-4 py-2 text-xs font-medium text-ink-muted transition-colors hover:border-gold hover:text-gold"
                     >
                       What services do you offer?
                     </button>
@@ -105,7 +106,7 @@ export function Chatbot() {
                     <button
                       type="button"
                       onClick={() => setInput("What is AI governance?")}
-                      className="rounded-full border border-line px-4 py-2 text-xs font-medium text-ink-muted transition-colors hover:border-gold hover:text-gold"
+                      className="cursor-pointer rounded-full border border-line px-4 py-2 text-xs font-medium text-ink-muted transition-colors hover:border-gold hover:text-gold"
                     >
                       What is AI governance?
                     </button>
@@ -151,7 +152,7 @@ export function Chatbot() {
 
             {/* Input */}
             <div className="border-t border-line bg-white p-4">
-              <div className="flex items-end gap-2 rounded-2xl border border-line bg-surface-alt p-2 focus-within:border-gold">
+              <div className="flex items-end gap-2 rounded-2xl border border-line bg-surface-alt p-2">
                 <input
                   type="text"
                   value={input}
@@ -171,9 +172,9 @@ export function Chatbot() {
                   onClick={handleSend}
                   disabled={!input.trim() || isLoading}
                   aria-label="Send question"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-navy text-white transition-colors duration-200 hover:bg-gold disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-xl bg-navy text-white transition-colors duration-200 hover:bg-gold disabled:cursor-not-allowed disabled:opacity-40"
                 >
-                  <FiArrowUp size={17} aria-hidden />
+                  <FaTelegramPlane size={16} aria-hidden />
                 </button>
               </div>
 
@@ -181,7 +182,7 @@ export function Chatbot() {
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="mt-3 flex w-full items-center justify-center rounded-xl border border-navy bg-transparent px-4 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
+                className="mt-3 flex w-full cursor-pointer items-center justify-center rounded-xl border border-navy bg-transparent px-4 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
               >
                 Contact Us
               </Link>
@@ -209,7 +210,7 @@ export function Chatbot() {
           aria-label={isOpen ? "Close GOVERNOVA AI" : "Open GOVERNOVA AI"}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-white bg-white text-navy shadow-lg ring-2 ring-navy transition-colors duration-200 hover:bg-navy hover:text-white"
+          className="relative flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-white text-navy shadow-lg ring-2 ring-navy transition-colors duration-200 hover:bg-navy hover:text-white"
         >
           <AnimatePresence mode="wait" initial={false}>
             {isOpen ? (
